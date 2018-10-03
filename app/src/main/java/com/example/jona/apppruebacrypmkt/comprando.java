@@ -2,9 +2,12 @@ package com.example.jona.apppruebacrypmkt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class comprando extends MainActivity {
     TextView misaldo;
@@ -14,7 +17,7 @@ public class comprando extends MainActivity {
     TextView txtMontoTemporal;
     ImageView imageView;
     TextView txtAbremo;
-
+    Button btnComprar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,9 +30,9 @@ public class comprando extends MainActivity {
         valorMoneda=(TextView)findViewById(R.id.txtValor);
         txtCantidadaComprar=(EditText) findViewById(R.id.txtCantidadaComprar);
         txtAbremo=(TextView)findViewById(R.id.txtAbremo);
-
+        btnComprar=(Button)findViewById(R.id.btnComprar);
         Intent intent= getIntent();
-        Bundle extras =intent.getExtras();
+        final Bundle extras =intent.getExtras();
 
         String moneda=extras.getString("abre");
         String saldo=extras.getString("saldo");
@@ -43,7 +46,13 @@ public class comprando extends MainActivity {
         valorMoneda.setText(valor);
         txtAbremo.setText(moneda);
 
-
+       /*
+       TEXTVIEW QUE MUESTRE SALDO MIENTRAS CALCULA CUANTO COMPRAR
+        int montoCompra=Integer.parseInt(txtCantidadaComprar.getText().toString());
+        int montoSaldo=Integer.parseInt(saldo);
+        int montoActualizado=montoSaldo-montoCompra;
+        txtMontoTemporal.setText(montoActualizado);
+        */
 
 
         switch (nombreMoneda){
@@ -60,7 +69,12 @@ public class comprando extends MainActivity {
                 imageView.setImageResource(R.drawable.stellar);
                 break;
         }
-
+        btnComprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"No disponible aun, aun no corrigo cierto problema XD", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 }

@@ -2,9 +2,12 @@ package com.example.jona.apppruebacrypmkt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class vendiendo  extends MainActivity {
     TextView misaldo;
@@ -14,11 +17,13 @@ public class vendiendo  extends MainActivity {
     TextView txtMontoTemporal;
     ImageView imageView;
     TextView txtAbremo;
+    Button btnVender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.proceso2);
+        btnVender=(Button)findViewById(R.id.btnVender);
         txtMontoTemporal=(TextView)findViewById(R.id.txtMontoTemporal);
         imageView=(ImageView)findViewById(R.id.imageView2);
         misaldo=(TextView)findViewById(R.id.txxSaldo);
@@ -62,5 +67,10 @@ public class vendiendo  extends MainActivity {
                 imageView.setImageResource(R.drawable.stellar);
                 break;
         }
-    }
+        btnVender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"No disponible aun, aun no corrigo cierto problema XD", Toast.LENGTH_LONG).show();
+            }
+        });    }
 }
